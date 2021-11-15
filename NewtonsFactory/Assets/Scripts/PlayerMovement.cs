@@ -39,4 +39,9 @@ public class PlayerMovement : MonoBehaviour
         sidewaysForce -= 5f;
       }
     }
+
+    public float getSpeed()
+    {
+      return forwardForce;
+    }
 }
