@@ -7,8 +7,14 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody rb;
     public float forwardForce;
     public float sidewaysForce;
+    public Vector3 velocity;
+    public float speed;
     // Start is called before the first frame update
-
+    void Update()
+    {
+      velocity = rb.velocity;
+      speed = velocity.magnitude;
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
