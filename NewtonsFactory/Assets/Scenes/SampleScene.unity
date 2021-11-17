@@ -24643,7 +24643,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Goal:'
+  m_Text: 'Goal: 50 kh/m'
 --- !u!222 &415487250
 CanvasRenderer:
   m_ObjectHideFlags: 0
