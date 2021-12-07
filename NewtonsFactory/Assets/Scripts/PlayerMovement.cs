@@ -35,14 +35,14 @@ public class PlayerMovement : MonoBehaviour
     {
       if (other.CompareTag("Boost"))
       {
-        forwardForce += 200f;
-        sidewaysForce += 10f;
+        forwardForce += 130f;
+        sidewaysForce += 3f;
       }
 
       if (other.CompareTag("Debuff"))
       {
-        forwardForce -= 100f;
-        sidewaysForce -= 5f;
+        forwardForce -= 80f;
+        sidewaysForce -= 1f;
       }
     }
 
