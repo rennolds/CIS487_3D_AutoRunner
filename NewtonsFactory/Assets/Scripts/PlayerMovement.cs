@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
           FindObjectOfType<GameManager>().LevelFailed();
         }
 
-        if (speed >= 45f)
+        if (speed >= 50f)
         {
           FindObjectOfType<GameManager>().LevelWon();
         }
@@ -61,6 +61,14 @@ public class PlayerMovement : MonoBehaviour
       {
         forwardForce -= 80f;
         sidewaysForce -= 1f;
+      }
+
+      if (other.CompareTag("End"))
+      {
+        if (speed < 50f)
+        {
+          FindObjectOfType<GameManager>().LevelFailed();
+        }
       }
     }
 
