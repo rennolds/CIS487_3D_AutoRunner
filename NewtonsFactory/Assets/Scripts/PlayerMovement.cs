@@ -29,6 +29,24 @@ public class PlayerMovement : MonoBehaviour
         {
           rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
         }
+        if (Input.GetKey("right"))
+        {
+          rb.AddForce(sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+        }
+        if (Input.GetKey("left"))
+        {
+          rb.AddForce(-sidewaysForce * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
+        }
+
+        if (rb.transform.position.y <= 10)
+        {
+          FindObjectOfType<GameManager>().LevelFailed();
+        }
+
+        if (speed >= 45f)
+        {
+          FindObjectOfType<GameManager>().LevelWon();
+        }
     }
 
     void OnTriggerEnter(Collider other)
