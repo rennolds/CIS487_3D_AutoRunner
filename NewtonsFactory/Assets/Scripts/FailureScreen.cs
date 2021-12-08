@@ -27,7 +27,7 @@ public class FailureScreen : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene("StartMenu");
         Time.timeScale = 1f;
     }
 }
