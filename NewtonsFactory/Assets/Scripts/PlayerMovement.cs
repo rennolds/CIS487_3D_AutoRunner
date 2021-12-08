@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         //Add a forward force
-        rb.AddForce(0, 0, forwardForce * Time.deltaTime); // adds a force of 2000 on the z-axis
+        rb.AddForce(0, 0, forwardForce * Time.deltaTime);
 
         if (Input.GetKey("d"))
         {
@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
           FindObjectOfType<GameManager>().LevelFailed();
         }
 
-        if (speed >= 50f)
+        if (speed >= 45f)
         {
           FindObjectOfType<GameManager>().LevelWon();
         }
@@ -53,19 +53,19 @@ public class PlayerMovement : MonoBehaviour
     {
       if (other.CompareTag("Boost"))
       {
-        forwardForce += 120f;
-        sidewaysForce += 2.25f;
+        forwardForce += 80f;
+        sidewaysForce += 2f;
       }
 
       if (other.CompareTag("Debuff"))
       {
-        forwardForce -= 75f;
+        forwardForce -= 60f;
         sidewaysForce -= 1.5f;
       }
 
       if (other.CompareTag("End"))
       {
-        if (speed < 50f)
+        if (speed < 45f)
         {
           FindObjectOfType<GameManager>().LevelFailed();
         }
