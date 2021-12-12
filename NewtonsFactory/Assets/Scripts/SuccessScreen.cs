@@ -22,6 +22,7 @@ public class SuccessScreen : MonoBehaviour
     public void NextLevel()
     {
         //SceneManager.LoadScene();     //Configure how to set up the scene, probably something along the lines of "Level" + some global int
+        SceneManager.LoadScene("StartMenu");
         Time.timeScale = 1f;
     }
 
@@ -33,7 +34,7 @@ public class SuccessScreen : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
-        SceneManager.LoadScene("Main Menu");
+        SceneManager.LoadScene("StartMenu");
         Time.timeScale = 1f;
     }
 }
