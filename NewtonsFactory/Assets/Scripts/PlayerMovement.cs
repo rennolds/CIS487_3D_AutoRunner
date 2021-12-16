@@ -9,6 +9,11 @@ public class PlayerMovement : MonoBehaviour
     public float sidewaysForce;
     public Vector3 velocity;
     public float speed;
+    public AudioSource soundeffects;
+    public AudioClip boost;
+    public AudioClip slow;
+    public AudioClip fail;
+    public AudioClip win;
     // Start is called before the first frame update
     void Update()
     {
@@ -40,12 +45,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (rb.transform.position.y <= 10)
         {
-          FindObjectOfType<GameManager>().LevelFailed();
+            soundeffects.PlayOneShot(fail);
+            FindObjectOfType<GameManager>().LevelFailed();
         }
 
         if (speed >= 45f)
         {
-          FindObjectOfType<GameManager>().LevelWon();
+            soundeffects.PlayOneShot(win);
+            FindObjectOfType<GameManager>().LevelWon();
         }
     }
 
@@ -55,19 +62,22 @@ public class PlayerMovement : MonoBehaviour
       {
         forwardForce += 80f;
         sidewaysForce += 2f;
+            soundeffects.PlayOneShot(boost);
       }
 
       if (other.CompareTag("Debuff"))
       {
         forwardForce -= 60f;
         sidewaysForce -= 1.5f;
-      }
+            soundeffects.PlayOneShot(slow);
+        }
 
       if (other.CompareTag("End"))
       {
         if (speed < 45f)
         {
-          FindObjectOfType<GameManager>().LevelFailed();
+                soundeffects.PlayOneShot(fail);
+                FindObjectOfType<GameManager>().LevelFailed();
         }
       }
     }

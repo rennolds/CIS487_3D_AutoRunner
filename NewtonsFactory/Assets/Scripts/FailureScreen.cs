@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 public class FailureScreen : MonoBehaviour
 {
     public GameObject failMenuUI;
+    public MusicHandler reenterTitle;
+    public AudioClip title;
 
     void Start()
     {
         failMenuUI.SetActive(false);
-
+        reenterTitle = MusicHandler.instance;
     }
 
     public void FailScreen()
@@ -27,6 +29,7 @@ public class FailureScreen : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
+        reenterTitle.TitleMusic(title);
         SceneManager.LoadScene("StartMenu");
         Time.timeScale = 1f;
     }
