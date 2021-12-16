@@ -9,9 +9,21 @@ EditorBuildSettings:
     path: Assets/Scenes/StartMenu.unity
     guid: 628efef1c8f572440b8deb05a0d4b9ad
   - enabled: 1
+    path: Assets/Scenes/Skybox.unity
+    guid: 1c8f55f8e05365c4d93a7e15acdfcbff
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/OptionsMenu.unity
     guid: 7e161d53c2128cd438d34a6e7a8f1b54
+  - enabled: 1
+    path: Assets/Scenes/HowToPlayMenu.unity
+    guid: b5de73d5eb0fcdd4d98d0cc45cd9bc56
+  - enabled: 1
+    path: Assets/Scenes/Level02.unity
+    guid: 8ef0bf81a9f9a4695bf784de41c9eb7a
+  - enabled: 1
+    path: Assets/Scenes/Level03.unity
+    guid: 705e93ca6ed314bb4bbbd7d0a79d7b93
   m_configObjects: {}
