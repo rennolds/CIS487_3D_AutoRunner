@@ -8,7 +8,6 @@ public class MusicHandler : MonoBehaviour
     public static MusicHandler instance;
     AudioSource _backgroundMusic, _sampleMusic;
     public AudioClip chosenSong;
-    bool isPause = false;
     public int levelCount = 0;
 
     void Awake()
@@ -50,12 +49,12 @@ public class MusicHandler : MonoBehaviour
 
     public void PauseMusic()
     {
-        _backgroundMusic.Pause();
+        _backgroundMusic.Stop();
     }
 
     public void UnPauseMusic()
     {
-        _backgroundMusic.UnPause();
+        _backgroundMusic.Play();
     }
 
 

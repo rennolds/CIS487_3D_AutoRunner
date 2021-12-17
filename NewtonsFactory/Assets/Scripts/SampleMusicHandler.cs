@@ -5,9 +5,10 @@ using UnityEngine;
 public class SampleMusicHandler : MonoBehaviour
 {
     public MusicHandler overallMusic;
+    public AudioSource menuSounds;
     AudioSource _sampleMusic;
-    AudioClip title, barreling, cursed;
-    bool isPause = false;
+    public AudioClip menuConfirm, menuBack;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,25 +25,22 @@ public class SampleMusicHandler : MonoBehaviour
 
     public void playSample(AudioClip selected)
     {
-        if (!isPause)
+        if (selected == _sampleMusic.clip && _sampleMusic.isPlaying)
         {
-            //overallMusic.PauseMusic();
-            _sampleMusic.clip = selected;
-            if (_sampleMusic.isPlaying)
-                _sampleMusic.Stop();
-            _sampleMusic.Play();
-            isPause = true;
+            menuSounds.PlayOneShot(menuBack);
+            _sampleMusic.Stop();
         }
         else
         {
-            _sampleMusic.Stop();
-            //overallMusic.UnPauseMusic();
-            isPause = false;
+            menuSounds.PlayOneShot(menuConfirm);
+            _sampleMusic.clip = selected;
+            _sampleMusic.Play();
         }
     }
 
     public void SetSong(AudioClip selected)
     {
+        menuSounds.PlayOneShot(menuConfirm);
         overallMusic.SetSong(selected);
     }
 }

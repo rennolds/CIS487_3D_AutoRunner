@@ -17,6 +17,6 @@ public class SpeedText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        speedText.text = "Current: " + (playerMovementScript.speed).ToString("0") + " kh/m";
+        speedText.text = "Current: " + (playerMovementScript.speed).ToString("0") + " km/h";
     }
 }

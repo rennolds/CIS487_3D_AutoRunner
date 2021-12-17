@@ -9,6 +9,8 @@ public class SuccessScreen : MonoBehaviour
     public MusicHandler reenterTitle;
     public AudioClip title;
     public int _CURRENT_HIGHEST_LEVEL_ = 3;
+    public AudioSource menuSounds;
+    public AudioClip menuConfirm, menuBack;
 
     void Start()
     {
@@ -25,9 +27,9 @@ public class SuccessScreen : MonoBehaviour
 
     public void NextLevel()
     {
+        menuSounds.PlayOneShot(menuConfirm);
         if (reenterTitle.levelCount < _CURRENT_HIGHEST_LEVEL_)
         {
-            //SceneManager.LoadScene();     //Configure how to set up the scene, probably something along the lines of "Level" + some global int
             reenterTitle.levelCount++;
             SceneManager.LoadScene("Level0" + reenterTitle.levelCount);
         }
@@ -41,12 +43,14 @@ public class SuccessScreen : MonoBehaviour
 
     public void RetryLevel()
     {
+        menuSounds.PlayOneShot(menuConfirm);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1f;
     }
 
     public void ReturnToMainMenu()
     {
+        menuSounds.PlayOneShot(menuBack);
         reenterTitle.TitleMusic(title);
         SceneManager.LoadScene("StartMenu");
         Time.timeScale = 1f;

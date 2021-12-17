@@ -8,6 +8,8 @@ public class FailureScreen : MonoBehaviour
     public GameObject failMenuUI;
     public MusicHandler reenterTitle;
     public AudioClip title;
+    public AudioSource menuSounds;
+    public AudioClip menuConfirm, menuBack;
 
     void Start()
     {
@@ -23,12 +25,14 @@ public class FailureScreen : MonoBehaviour
 
     public void RetryLevel()
     {
+        menuSounds.PlayOneShot(menuConfirm);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1f;
     }
 
     public void ReturnToMainMenu()
     {
+        menuSounds.PlayOneShot(menuBack);
         reenterTitle.TitleMusic(title);
         SceneManager.LoadScene("StartMenu");
         Time.timeScale = 1f;

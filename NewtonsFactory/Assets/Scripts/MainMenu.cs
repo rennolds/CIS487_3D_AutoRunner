@@ -18,6 +18,9 @@ public class MainMenu : MonoBehaviour
 
     public MusicHandler overallMusic;
 
+    public AudioSource menuSounds;
+    public AudioClip menuConfirm, menuBack;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,27 +34,29 @@ public class MainMenu : MonoBehaviour
         
     }
 
-    public void startGame(AudioClip def)
+    public void startGame()
     {
-        if (overallMusic.chosenSong == null)
-            overallMusic.chosenSong = def;
+        menuSounds.PlayOneShot(menuConfirm);
         overallMusic.ReloadOnLevel();
-        overallMusic.levelCount++;
+        overallMusic.levelCount = 1;
         SceneManager.LoadScene("Skybox");
     }
 
     public void openHowToPlay()
     {
+        menuSounds.PlayOneShot(menuConfirm);
         SceneManager.LoadScene(howToPlayMenu);
     }
 
     public void openOptions()
     {
+        menuSounds.PlayOneShot(menuConfirm);
         SceneManager.LoadScene(optionsMenu);
     }
 
     public void closeOptions()
     {
+        menuSounds.PlayOneShot(menuBack);
         if (currScene == "OptionsMenu")
             overallMusic.UnPauseMusic();
         SceneManager.LoadScene(startMenu);
@@ -59,6 +64,7 @@ public class MainMenu : MonoBehaviour
 
     public void quitGame()
     {
+        menuSounds.PlayOneShot(menuBack);
         Application.Quit();
     }
 
